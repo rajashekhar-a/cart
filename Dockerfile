@@ -1,4 +1,4 @@
-FROM      node
+FROM      node:18
 RUN       useradd -m -d /app roboshop
 USER      roboshop
 WORKDIR   /app
