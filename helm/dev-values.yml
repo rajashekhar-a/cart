@@ -1,7 +1,8 @@
 replicaCount: 1
 image:
   repository: 975050272810.dkr.ecr.us-east-1.amazonaws.com/cart
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
+  tag: "1.0.0"
 
 serviceAccount:
   create: true
