@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart
+  labels:
+    app: cart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: cart
+  template:
+    metadata:
+      labels:
+        tier: cart
+    spec:
+      containers:
+        - name: cart
+          image: 863518461004.dkr.ecr.us-east-1.amazonaws.com/cart:latest
