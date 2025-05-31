@@ -4,5 +4,5 @@ USER      roboshop
 WORKDIR   /app
 COPY      package.json .
 COPY      server.js .
-RUN        npm install -g npm@11.1.0
+RUN        npm install
 CMD       ["node", "server.js"]
