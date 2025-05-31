@@ -17,3 +17,6 @@ spec:
       containers:
         - name: cart
           image: 863518461004.dkr.ecr.us-east-1.amazonaws.com/cart:latest
+          envFrom:
+            - configMapRef:
+                name: cart-config
