@@ -61,6 +61,7 @@ pipeline {
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds-id']]) {
           sh '''
             aws eks update-kubeconfig --region $AWS_REGION --name $CLUSTER_NAME
+            aws sts get-caller-identity
             kubectl apply -f kubernetes/
           '''
         }
