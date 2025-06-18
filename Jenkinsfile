@@ -61,19 +61,20 @@ pipeline {
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds-id']]) {
           sh '''
             aws eks update-kubeconfig --region $AWS_REGION --name $CLUSTER_NAME
+            kubectl apply -f kubernetes/
           '''
         }
       }
     }
 
-    stage('Deploy to EKS') {
-      steps {
-        sh '''
-          ##sed -i "s|<IMAGE>|$ECR_REPO:$IMAGE_TAG|g" kubernetes/deployment.yaml
-          kubectl apply -f kubernetes/
-        '''
-      }
-    }
+//     stage('Deploy to EKS') {
+//       steps {
+//         sh '''
+//           ##sed -i "s|<IMAGE>|$ECR_REPO:$IMAGE_TAG|g" kubernetes/deployment.yaml
+//           kubectl apply -f kubernetes/
+//         '''
+//       }
+//     }
   }
 
   post {
